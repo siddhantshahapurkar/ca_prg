@@ -1,0 +1,154 @@
+<html>
+    <head>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+        <link rel="stylesheet" href="css/managers.css">
+        <title>Managers</title>
+    </head>
+
+    <script src="https://www.gstatic.com/firebasejs/7.17.2/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.17.2/firebase-analytics.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.17.2/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.17.2/firebase-firestore.js"></script>
+
+    <script>
+    // Your web app's Firebase configuration
+    var firebaseConfig = {
+  apiKey: "AIzaSyCuI9p--uQFbg6mmm-skoH1eLKiGMTT764",
+  authDomain: "e-cell-iith.firebaseapp.com",
+  databaseURL: "https://e-cell-iith.firebaseio.com",
+  projectId: "e-cell-iith",
+  storageBucket: "e-cell-iith.appspot.com",
+  messagingSenderId: "796712758296",
+  appId: "1:796712758296:web:f8eccb20bb876292dce76d",
+  measurementId: "G-Y2S58PKNF9"
+};
+    // Initialize Firebase
+    firebase.initializeApp(firebaseConfig);
+    firebase.analytics();
+
+    </script>
+
+    <body>
+        
+        <div id = "welcome"></div>
+        <label for="email">email of CA:</label>
+        <input type="email" id="email" name="user_email">
+
+        <label for="taskno">task no:</label>
+        <input type="number" id="taskno" name="taskno">
+
+        <label for="points_given">points given:</label>
+        <input type="number" id="points_given" name="points_given">
+
+        <button onclick="taskcompleted()">submit</button>
+
+        
+        <div class ="container">
+            <table>
+                <col width="15%"><col width="40%"><col width="35%"><col width = "10%">
+                <thead><th>name</th><th>college</th><th>email</th><th>points</th></thead>
+                <tbody id="list-table-body"></tbody>        
+            </table>
+        </div>
+
+        <button onclick = "signout()"> signout</button>
+    </body>
+
+    <script>
+
+                function taskcompleted(){
+                    var email = document.getElementById('email').value;
+                    var taskno = document.getElementById('taskno').value;
+                    var taskid = "task" + taskno
+                    var points_given = document.getElementById('points_given').value;
+                    var points_int = parseInt(points_given);
+
+                    var taskref = db.collection("users").doc(email).collection("tasks").doc(taskid);
+
+                    taskref.update({
+                        "scored": points_int,
+                        "completed": true
+                    })
+                    .then(function() {
+                        console.log("Document successfully updated!");
+                        db.collection("users").doc(email).update({
+                            points: firebase.firestore.FieldValue.increment(points_int)
+                        })
+                        location.reload();
+                    });
+
+                }
+        
+        firebase.auth().onAuthStateChanged(function(user) {
+			if (user) {
+				// User is signed in.
+				console.log("user info", user);
+			
+			db = firebase.firestore();
+            var docRef = db.collection("managers").doc(user.email);
+			docRef.get().then(function(doc) {
+			if (doc.exists) {
+
+                var h1 = document.createElement("h1");
+                h1.innerHTML = "welcome, " + doc.data().name;
+                welcome  =document.getElementById("welcome")
+                welcome.append(h1);
+
+                console.log("Document data:", doc.data());
+                var CAs = doc.data().CAs;
+                const listTableBody = document.getElementById("list-table-body");
+
+                // clear all the table rows first
+                listTableBody.textContent = "";
+                CAs.forEach(function(ca){
+                    console.log(ca);
+                    db.collection("users").doc(ca).get().then(function(doc){
+                        var ca_details = doc.data();
+                        var row = document.createElement("tr");
+                        row.innerHTML = "<td>" + ca_details.name + "</td><td>" + ca_details.college + "</td><td>" +
+                            ca_details.email
+                            + "</td>" + ca_details.points + "<td></td>";
+                        listTableBody.append(row);
+                    }).catch(function(error){
+                        console.log("Error getting document:", error);
+                    })
+                })
+                
+
+                            
+			} else {
+				// doc.data() will be undefined in this case
+				document.body.innerHTML = "<h1> U are not a manager!!<h1>"
+			}
+			}).catch(function(error) {
+				console.log("Error getting document:", error);
+			});
+				
+
+			} else {
+                console.log("heyhey");
+            var provider = new firebase.auth.GoogleAuthProvider();
+            firebase.auth().signInWithRedirect(provider);
+            firebase.auth().getRedirectResult().then(function(result) {
+                var user = result.user;
+                console.log("user info", user);
+                
+            }).catch(function(error){
+                console.log('google sign in error', error);
+                alert('Please Try Again !')
+            });
+		}
+        }); 
+        
+
+        function signout(){
+      firebase.auth().signOut().then(function() {
+      // Sign-out successful.
+      }).catch(function(error) {
+      // An error happened.
+          console.log(error)
+      });
+        }
+    </script>
+
+</html>

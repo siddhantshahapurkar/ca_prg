@@ -1,0 +1,482 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+    integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+  <link rel="stylesheet" href="css/dashboard.css">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.14.0/css/all.css"
+    integrity="sha384-HzLeBuhoNPvSl5KYnjx0BT+WB0QEEqLprO+NBkkk5gbc67FTaL7XIGa2w1L0Xbgc" crossorigin="anonymous">
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+    integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+    crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+    integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
+    crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
+    integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV"
+    crossorigin="anonymous"></script>
+  <script src="https://www.gstatic.com/firebasejs/7.17.2/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/7.17.2/firebase-analytics.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/7.17.2/firebase-auth.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/7.17.2/firebase-firestore.js"></script>
+  <script src="js/dashboard.js"></script>
+  <title>Dashboard</title>
+  <link rel="icon" href="img/logo-title.png" type="image/x-icon">
+</head>
+
+<body onload="the_fun()" style="height: 100%;">
+
+  <div class="initial" id="before">
+    <div class="spinner-grow text-primary" role="status">
+      <span class="sr-only">Loading...</span>
+    </div>
+    <div class="spinner-grow text-secondary" role="status">
+      <span class="sr-only">Loading...</span>
+    </div>
+    <div class="spinner-grow text-success" role="status">
+      <span class="sr-only">Loading...</span>
+    </div>
+    <div class="spinner-grow text-danger" role="status">
+      <span class="sr-only">Loading...</span>
+    </div>
+    <div class="spinner-grow text-warning" role="status">
+      <span class="sr-only">Loading...</span>
+    </div>
+    <div class="spinner-grow text-info" role="status">
+      <span class="sr-only">Loading...</span>
+    </div>
+
+  </div>
+
+  </div>
+
+
+  <div class="hidd ze_op " id="after">
+
+
+    <ul class="nav nav-tabs" id="tab_root">
+      <li class="nav-item">
+        <a class="nav-link active" data-toggle="tab" href="#profile">Profile</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" data-toggle="tab" href="#task"><i class="fas fa-tasks"></i>Tasks</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" data-toggle="tab" href="#ranking">Ranking</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" data-toggle="tab" href="#faq">FAQ</a>
+      </li>
+
+      <li class="nav-item">
+        <a class="nav-link" data-toggle="tab" href="#noti">Notifications</a>
+      </li>
+
+      <li class="nav-item">
+        <a class="nav-link" data-toggle="tab" onclick="signout()">Logout</a>
+      </li>
+    </ul>
+
+
+
+
+
+    <div class="tab-content" id="new_">
+
+      <!-- -------------------------------------- Home Profile Tab Starts -->
+      <div class="tab-pane active container-fluid" id="profile" style="position: relative;">
+
+        <div class="row">
+          <div class="col text-center">
+            <h2>CAMPUS AMBASSADOR</h2>
+          </div>
+        </div>
+        <div class="container-fluid text-center img_">
+          <img id="photo" src="" class="" alt="...">
+        </div>
+        <div class="container-fluid text-center" id="profile1">
+          <div class="container">
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+
+            <div class="row">
+              <div class="col-2 col-sm-3 text-left"></div>
+              <div class="col-3 col-sm-2 text-left">
+                <h6>Name : </h6>
+              </div>
+              <div class="col-6 text-left">
+                <p id="name"></p>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-2 col-sm-3 text-left"></div>
+              <div class="col-3 col-sm-2 text-left">
+                <h6>College Name : </h6>
+              </div>
+              <div class="col-6 text-left">
+                <p id="college"></p>
+
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-2 col-sm-3 text-left"></div>
+              <div class="col-3 col-sm-2 text-left">
+                <h6>Mail Id :</h6>
+              </div>
+              <div class="col-6 text-left">
+                <p id="email"></p>
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="col-2 col-sm-3 text-left"></div>
+              <div class="col-3 col-sm-2 text-left">
+                <h6>Contact No. :</h6>
+              </div>
+              <div class="col-6 text-left">
+                <p id="phone"></p>
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="col-2 col-sm-3 text-left"></div>
+              <div class="col-3 col-sm-2 text-left">
+                <h6>Points :</h6>
+              </div>
+              <div class="col-6 text-left">
+                <p id="points"></p>
+              </div>
+            </div>
+
+
+            <div class="row">
+              <div class="col-2 col-sm-3 text-left"></div>
+              <div class="col-3 col-sm-2 text-left">
+                <h6>Your Referral Code:</h6>
+              </div>
+              <div class="col-6 text-left">
+                <p id="referral"></p>
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="col-2 col-sm-3 text-left"></div>
+              <div class="col-3 col-sm-2 text-left">
+                <h6>Manager Name :</h6>
+              </div>
+              <div class="col-6 text-left">
+                <p id="manager"></p>
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="col-2 col-sm-3 text-left"></div>
+              <div class="col-3 col-sm-2 text-left">
+                <h6>Manager No. :</h6>
+              </div>
+              <div class="col-6 text-left">
+                <p id="manager_no"></p>
+              </div>
+            </div>
+
+
+
+          </div>
+        </div>
+
+      </div>
+
+      <!----------------------------- Home tab ends  -->
+
+      <!-- ---------------------- Task tab starts -->
+
+      <div class="tab-pane container" id="task">
+
+
+        <div class="container-fluid" style="margin-top: 5%;" id="task_subcontainer">
+
+          <ul class="nav nav-tabs" style="padding-top: 2%;">
+            <li class="nav-item">
+              <a class="nav-link active" data-toggle="tab" href="#current">Current Tasks</a>
+            </li>
+
+            <li class="nav-item">
+              <a class="nav-link" data-toggle="tab" href="#completed"> <strong>Completed</strong> </a>
+            </li>
+          </ul>
+
+          <div class="tab-content">
+
+            <div class="tab-pane container active" id="current">
+
+
+
+
+            </div>
+
+            <!--                 <div class="tab-pane container fade" id="underprocess">
+                  <br>
+                  <br>
+                  <div class="card ">
+                    <h5 class="card-header">Task - 2</h5>
+                    <div class="card-body">
+                      <p> Info of the task not bold as it does not matter....</p>                    
+                    </div>
+                  </div>
+                  
+                </div> -->
+
+
+            <div class="tab-pane container fade" id="completed">
+              <!--                   <br>
+                  <br>
+                  <div class="card">
+                    <h5 class="card-header">Task - 1</h5>
+                    <div class="card-body">
+                      <p> Info of the task not bold as it does not matter....</p>
+                      <h6 class="card-text">Scored 50</h6>
+                    
+                    </div>
+                  </div>
+                   -->
+            </div>
+
+
+          </div>
+
+        </div>
+
+
+
+        <br>
+        <br>
+        <br>
+      </div>
+
+      <!-------------------- Task tab ends  -->
+
+      ` <div class="tab-pane container" id="ranking" style="background-color: #ffffff; margin-top: 1%;">
+        <table class="table">
+          <thead>
+            <tr>
+              <th scope="col">Rank</th>
+              <th scope="col">Name</th>
+              <th scope="col">College</th>
+              <th scope="col">Points</th>
+            </tr>
+          </thead>
+          <tbody id="list-table-body">
+          </tbody>
+        </table>
+      </div>
+
+
+
+      <div class="tab-pane container-fluid container" id="faq" style="background-color: #ffffff;">
+        <br>
+
+        <h3 style="color: rgb(26,8,70);">Frequently Asked Questions <i class="fas fa-question"></i></h3>
+
+        <br>
+        <div class="container-fluid text-center" style="background-color: #ffffff; ">
+
+          <!-- faq 1 -->
+          <div class="row" style="margin-left: 1%;"> <button class="btn btn-primary"
+              style="background-color: transparent; color: rgb(26,8,70); border-width: 0px;" type="button"
+              data-toggle="collapse" data-target="#faq1" aria-expanded="false" aria-controls="faq1">
+              <i class="fas fa-plus-circle"></i> How will a CA update us with their work?</button> </div>
+
+
+          <div class="collapse" id="faq1">
+            <div class="row text-left" style="margin-left: 4.5%;margin-top: 1%;">
+              All the tasks/work will be updated in the CA portal. Thereby your respective manager will be taking care
+              of the work done by you through social media.
+            </div>
+          </div>
+          <hr>
+          <!-- faq 1 ends -->
+
+          <!-- faq 2 -->
+          <div class="row" style="margin-left: 1%;"> <button class="btn btn-primary"
+              style="background-color: transparent; color: rgb(26,8,70); border-width: 0px;" type="button"
+              data-toggle="collapse" data-target="#faq2" aria-expanded="false" aria-controls="faq2">
+              <i class="fas fa-plus-circle"></i> Does the CA work or promote ECell outside his college campus ?</button>
+          </div>
+
+
+          <div class="collapse" id="faq2">
+            <div class="row text-left" style="margin-left: 4.5%;margin-top: 1%;">
+              He can, but since they'll be CAs already in other colleges, it might get diluted and a lot of competitions
+              would be focused on college participation, so they have to target mostly students in their campus. </div>
+          </div>
+          <hr>
+          <!-- faq 2 ends -->
+
+          <!-- faq 3 -->
+          <div class="row" style="margin-left: 1%;"> <button class="btn btn-primary"
+              style="background-color: transparent; color: rgb(26,8,70); border-width: 0px;" type="button"
+              data-toggle="collapse" data-target="#faq3" aria-expanded="false" aria-controls="faq3">
+              <i class="fas fa-plus-circle"></i> What will a CA gain ?</button>
+          </div>
+
+
+          <div class="collapse" id="faq3">
+            <div class="row text-left" style="margin-left: 4.5%;margin-top: 1%;">
+              Certificate of appreciation from E-cell IITH at the end of the tenure, sessions with alumni of IITH,
+              world-class courses & internship opportunities. Besides, this experience will help you develop time
+              management, communication skills, and teamwork. Best CA will receive many more incentives.</div>
+          </div>
+          <hr>
+          <!-- faq 3 ends -->
+
+          <!-- faq 4 -->
+
+          <!-- faq 4 ends -->
+
+          <!-- faq 5 -->
+
+          <!-- faq 5 ends -->
+
+
+          <br>
+        </div>
+
+
+
+
+      </div>
+
+
+
+      <!-- Notification      starts -->
+      <div class="tab-pane container" id="noti">
+
+
+        <div class="container-fluid" style="margin-top: 5%;" id="task_subcontainer">
+
+          <br>
+          <br>
+          <!-- Add the Notification in below manner -->
+          <div class="card" style="background-color: #ffffff;">
+            <h5 class="card-header">Welcome to E-Cell!</h5>
+            <div class="card-body">
+              <h6 class="card-text">Congratulations! Welcome to the E-Cell IIT Hyderabad family. You will be the
+                representative of this organization in your colleges. Live up to your name. </h6><br><br>
+
+              A few points that we want to make clear: <br>
+              In this journey, you will receive many great offers of training courses, webinars, live events, etc. -
+              all the offers that E-Cell receives will be directly forwarded to you everytime. Some will be free, some
+              will be paid, of course. So make sure you make the best use of these offers.
+              Spread the word. E-Cell stands for promoting Entrepreneurship Culture, amongst and around everyone who
+              are associated with it. It is your duty to spread our message in your college. It can be as simple as
+              putting up one story, or forwarding a message. But your reputation in your college should be that people
+              should approach you in matters of E-Cell IITH activities.
+              We will be also organizing many Intra CA competitions, where you guys will be competing amongst
+              yourselves. This will help you learn great new things. Remember, winning should not be the purpose, but
+              learning. <br> <br>
+
+              Stay involved. Keep hustling. Make sure you learn something out of this. <br><br>
+
+              Peace! <br> <br>
+
+              Find the links of upcoming webinars/workshops below:- <br><br>
+              <div class="card ">
+                <h5 class="card-header">1. TutED:</h5>
+                <div class="card-body">
+                  <p>TutED, in collaboration with E-Cell, is providing training on Data Science. Due to this
+                    collaboration, they are providing the trainings at a 20% discounted rate. </p>
+                  <p>Your duty as a CA is to promote this training course, and make sure those who are willing to
+                    learn Data Science in your college/friend.</p>
+                  <p><a href="http://www.tuted.co.in/ds/">http://www.tuted.co.in/ds/ </a></p>
+                </div>
+              </div>
+              <br>
+              <div class="card ">
+                <h5 class="card-header">2. Finstreet:</h5>
+                <div class="card-body">
+                  <p>Courses on Cryptocurrency and Stock Marketing, in association with E-Cell IIT Hyderabad.</p>
+                  <p>Use IITH100 for discount. </p>
+                  <p>Last date 21st September. </p>
+                  <p> <a href="https://www.finstreet.in/Event_detail?eventName=4&ref=fe62207fc312052c2dde3048519cde66">
+                      https://www.finstreet.in/Event_detail?eventName=4&ref=fe62207fc312052c2dde3048519cde66</a></p>
+                </div>
+              </div>
+              <br>
+              <div class="card ">
+                <h5 class="card-header">3. Communication Skill Enhancement By Pritam Bhadra: </h5>
+                <img style="width: 100%; height: auto;" class="card-img-top" src="./pritamBhadra.jpeg" alt="Card image cap">
+                <div class="card-body">
+                  <p>Communication, as we know, is of prime importance in the corporate world. If you wish to shine
+                    through the crowd of professionals around you, you must pay special attention to your soft skills.
+                  </p>
+                  <p>Catering to the skill requirements of students preparing to enter the professional arena, MFL
+                    Educlub is organising a 3-Day Training Program by Corporate Trainer & Motivational Speaker, Pritam
+                    Bhadra. So don't miss out on this learning opportunity... and a little extra! </p>
+                  <p>We've got E-certificates and a Letter of Recommendation for all the participants. Also, some
+                    wonderful goodies lie in wait for a select few participants.</p>
+                  <p>Register for the session at: </p>
+                  <p><a
+                      href="https://mfleduclub.wpcomstaging.com/product/impactful-communication-iith/">https://mfleduclub.wpcomstaging.com/product/impactful-communication-iith/</a>
+                  </p>
+                  <p>Details of the Training Program: </p>
+                  <p>Date : 02.10.2020 - 04.10.2020 </p>
+                  <p>Duration: 2 Hours each day</p>
+                  <p>Cost : INR 299/- only with special coupon for IITH ( MFLSEP50)</p>
+                </div>
+              </div>
+              <br>
+
+
+
+
+            </div>
+          </div>
+
+
+        </div>
+
+
+
+        <br>
+        <br>
+        <br>
+      </div>
+
+      <!-- Notification Ends -->
+
+
+
+    </div>
+
+  </div>
+
+  <script>
+    function myFunction() {
+      var element = document.getElementById("before");
+      element.classList.add("hidd");
+    }
+    function function2() {
+      var element = document.getElementById("after");
+      element.classList.remove("hidd");
+      element.classList.add("anim");
+    }
+    function the_fun() {
+      myFunction();
+      function2();
+    }
+  </script>
+  <script>
+      // window.setTimeout(myFunction , 2000) ;
+      // window.setTimeout(function2, 2500) ;  ;
+  </script>
+</body>
+
+</html>

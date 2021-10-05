@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+        <link rel="stylesheet" href="css/managers.css">
+        <title>Admin</title>
+    </head>
+
+    <script src="https://www.gstatic.com/firebasejs/7.17.2/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.17.2/firebase-analytics.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.17.2/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.17.2/firebase-firestore.js"></script>
+    <script src="https://smtpjs.com/v3/smtp.js"></script>
+    <script src = "js/admin.js"></script>
+    <body>
+        
+        <div id = "welcome"></div>
+
+        <label for="taskno">task no:</label>
+        <input type="number" id="taskno" name="taskno">
+
+        <label for="description">description:</label>
+        <input type="text" id="description" name="description">
+
+        <label for="maxpoints">points given:</label>
+        <input type="number" id="maxpoints" name="maxpoints">
+
+        <button onclick="taskadded()">submit</button>
+
+        
+        <div class ="container">
+            <table>
+                <col width="15%"><col width="40%"><col width="35%"><col width = "10%">
+                <thead><th>name</th><th>college</th><th>email</th><th>points</th></thead>
+                <tbody id="list-table-body"></tbody>        
+            </table>
+        </div>
+
+        <button onclick = "signout()"> signout</button>
+
+        <div class ="container">
+            <table>
+                <col width="10%"><col width="80%"><col width = "10%">
+                <thead><th>taskno</th><th>description</th><th>points</th></thead>
+                <tbody id="task-table-body"></tbody>        
+            </table>
+        </div>
+
+    </body>
+
+
+
+</html>

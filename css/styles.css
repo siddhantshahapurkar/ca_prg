@@ -1,0 +1,26 @@
+.initial{
+    position: fixed;
+    top: 0%;
+    left: 0%;
+    top: 40%;
+    left: 40%;
+}
+.hidd{
+    visibility: hidden;
+}
+.ze_op{
+    opacity: 0;
+} 
+.anim {
+    /* width: 100px;
+    height: 100px;
+    background-color: red; */
+    animation-name: vis;
+    animation-duration: 4s;
+    opacity: 1;
+  }
+  
+  @keyframes vis {
+    from {opacity:0;}
+    to {opacity:1;}
+  }
