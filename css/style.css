@@ -1,2173 +1,705 @@
-/*
-Theme Name:
-Author: yaminncco
-
-Colors:
-	Body 		  : #868F9B
-	Headers 	: #10161A
-	Primary 	: rgb(254, 92, 100)
-	Dark      : #FCFCFF
-	Grey 		  : #F4F4F4 #FAFAFA #EEE
-
-Fonts: Montserrat Varela Round
-
-Table OF Contents
-------------------------------------
-1 > General
-2 > Logo
-3 > Navigation
-4 > Header
-5 > About
-6 > Portfolio
-7 > Services
-8 >  Why choose us
-9 >  Numbers
-10 > Pricing
-11 > Testimonial
-12 > Team
-13 > Blog
-14 > Blog post
-15 > Blog sidebar
-16 > Contact
-17 > Footer
-18 > Responsive
-19 > Owl theme
-20 > Back to top
-21 > Preloader
-22> Reviews
-
-------------------------------------*/
-
-/*------------------------------------*\
-	General
-\*------------------------------------*/
-
-
-/* -- typography -- */
-
-body {
-    font-family: 'Varela Round', sans-serif;
-    font-size: 16px;
-    line-height: 1.6;
-    overflow-x: hidden;
-    color: #000000;
-    background-color: rgb(255, 255, 255);
-    scroll-snap-type: y mandatory;
-}
-
-h1, h2, h3, h4, h5, h6 {
-    font-family: 'Montserrat', sans-serif;
-    font-weight: 700;
-    margin-top: 0px;
-    margin-bottom: 20px;
-    color: #10161A;
-}
-
-h1 {
-    margin-bottom: -15px;
-    font-weight: 900;
-    font-size: 10.5vh;
-    font-family: 'Bebas Neue';
-    letter-spacing: 4px;
-}
-
-h2 {
-    font-size: 44px;
-    color: rgb(0, 54, 108);
-}
-
-h3 {
-    font-size: 21px;
-}
-
-h4 {
-    font-size: 35px;   
-}
-
-h5 {
-    font-size: 16px;
-}
-
-a {
-    color: rgb(254, 92, 100);
-    text-decoration: none;
-    -webkit-transition: 0.2s opacity;
-    transition: 0.2s opacity;
-}
-
-a:hover, a:focus {
-    text-decoration: none;
-    outline: none;
-    opacity: 0.8;
-    color: rgb(254, 92, 100);
-}
-
-.main-color {
-    color: rgb(254, 92, 100);
-}
-
-.white-text {
-    color: rgb(0, 54, 108);
-}
-
-::-moz-selection {
-    background-color: rgb(254, 92, 100);
-    color: #FFF;
-}
-
-::selection {
-    background-color: rgb(254, 92, 100);
-    color: #FFF;
-}
-
-ul, ol {
-    margin: 0;
-    padding: 0;
-    list-style: none
-}
-
-/* -- section  -- */
-
-.section {
-    position: relative;
-}
-
-.md-padding {
-    padding-top: 120px;
-    padding-bottom: 120px;
-}
-
-.sm-padding {
-    padding-top: 60px;
-    padding-bottom: 60px;
-}
-
-
-/* --  background section  -- */
-
-.bg-grey {
-    background-color: #FAFAFA;
-    border-top: 1px solid #EEE;
-    border-bottom: 1px solid #EEE;
-}
-
-.bg-dark {
-    background-color: #1C1D21;
-}
-
-
-/* --  background image section  -- */
-
-.bg-img {
-    position: absolute;
-    left: 0;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    z-index: -1;
-    background-position: center;
-    background-size: cover;
-    background-attachment: fixed;
-}
-
-.bg-img .overlay {
-    position: absolute;
-    left: 0;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    opacity: 0;
-    background: #1C1D21;
-}
-
-.bg-img-small {
-    position: absolute;
-    left: 0;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    z-index: -1;
-    background-position: center;
-    background-size: cover;
-    background-attachment: fixed;
-    display: none;
-}
-
-.bg-img-small .overlay {
-    position: absolute;
-    left: 0;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    opacity: 0;
-    background: #1C1D21;
-}
-
-@media only screen and (max-width: 767px) {
-    .bg-img {
-        display: none;
-    }
-    .bg-img-small {
-        display: block;
-    }
-    #about {
-        padding-bottom: 60px;
-    }
-    #whyca {
-        padding-top: 60px;
-        padding-bottom: 90px;
-    }
-    #responsibilities {
-        padding-top: 90px;
-    }
-}
-
-
-/* --  section header  -- */
-
-.section-header {
-    position: relative;
-    margin-bottom: 60px;
-}
-
-.section-header .title {
-    text-transform: capitalize;
-}
-
-.title:after {
-    content:"";
-  	display:block;
-  	height:4px;
-  	width:40px;
-  	background-color: rgb(254, 92, 100);
-    margin-top: 20px;
-}
-
-.text-center .title:after {
-    margin: 20px auto 0px;
-}
-
-/* --  Input  -- */
-
-input[type="text"], input[type="email"], input[type="password"], input[type="number"], input[type="date"], input[type="url"], input[type="tel"], textarea {
-    height: 40px;
-    width: 100%;
-    border: none;
-	  background: #F4F4F4;
-    border-bottom: 2px solid #EEE;
-    color: #354052;
-    padding: 0px 10px;
-    opacity: 0.5;
-    -webkit-transition: 0.2s border-color, 0.2s opacity;
-    transition: 0.2s border-color, 0.2s opacity;
-}
-
-textarea {
-    padding: 10px 10px;
-    min-height: 80px;
-    resize: vertical;
-}
-
-input[type="text"]:focus, input[type="email"]:focus, input[type="password"]:focus, input[type="number"]:focus, input[type="date"]:focus, input[type="url"]:focus, input[type="tel"]:focus, textarea:focus {
-    border-color: rgb(254, 92, 100);
-    opacity: 1;
-}
-
-/* --  Buttons  -- */
-
-.main-btn, .white-btn, .outline-btn {
-    display: inline-block;
-    padding: 10px 35px;
-    margin: 3px;
-    border: 2px solid transparent;
-    border-radius: 3px;
-    -webkit-transition: 0.2s opacity;
-    transition: 0.2s opacity;
-
-}
-
-.main-btn {
-    background: rgb(254, 92, 100);
-    color: #FFF;
-}
-
-.white-btn {
-    background: rgb(0, 54, 108);
-    color: #10161A !important;
-}
-
-.outline-btn {
-    background: transparent;
-    color: rgb(254, 92, 100) !important;
-    border-color: rgb(254, 92, 100);
-}
-
-.main-btn:hover, .white-btn:hover, .outline-btn:hover {
-    opacity: 0.8;
-}
-
-
-/*------------------------------------*\
-	Logo
-\*------------------------------------*/
-
-.navbar-brand {
-    padding: 0px;
-    margin-left: 10px;
-}
-
-.navbar-brand .logo, .navbar-brand .logo-alt {
-    max-height: 50px;
-    display: block;
-}
-
-#nav:not(.nav-transparent):not(.fixed-nav) .navbar-brand .logo-alt {
-	display: none;
-}
-
-#nav.nav-transparent:not(.fixed-nav) .navbar-brand .logo {
-	display: none;
-}
-
-#nav.fixed-nav .navbar-brand .logo-alt {
-    display: none;
-}
-
-@media only screen and (max-width: 767px) {
-    #nav.nav-transparent .navbar-brand .logo-alt {
-        display: block !important;
-    }
-    #nav.nav-transparent .navbar-brand .logo {
-        display: none !important;
-    }
-}
-
-
-/*------------------------------------*\
-	Navigation
-\*------------------------------------*/
-
-#nav {
-    padding: 10px 0px;
-    background: #FFF;
-    -webkit-transition: 0.2s padding;
-    transition: 0.2s padding;
-    z-index: 999;
-}
-
-#nav.navbar {
-    border: none;
-    border-radius: 0;
-    margin-bottom: 0px;
-}
-
-#nav.fixed-nav {
-    position: fixed;
-    left: 0;
-    right: 0;
-    padding: 15px px;
-    background-color: rgb(255, 255, 255) !important;
-    border-bottom: 0px solid rgb(0, 0, 0);
-    opacity: 100%;
-}
-
-#nav.nav-transparent {
-    background: transparent;
-}
-
-
-/* -- default nav -- */
-
-@media only screen and (min-width: 900px) {
-    .main-nav li {
-        padding: 0px 15px;
-    }
-    .main-nav li a {
-        font-size: 20px;
-        -webkit-transition: 0.2s color;
-        transition: 0.2s color;
-    }
-    /* initial font color */
-    .main-nav>li>a {
-        color: rgb(0, 54, 108);
-        padding: 15px 0px;
-    }
-    /* later font color */
-    #nav.nav-transparent:not(.fixed-nav) .main-nav>li>a {
-        color: rgb(0, 54, 108);
-    }
-    .main-nav>li>a:hover, .main-nav>li>a:focus, .main-nav>li.active>a {
-        background: transparent;
-        color: rgb(254, 92, 100);
-    }
-    .main-nav>li>a:after {
-        content: "";
-        display: block;
-        background-color: rgb(254, 92, 100);
-        height: 2px;
-        width: 0%;
-        -webkit-transition: 0.2s width;
-        transition: 0.5s width;
-    }
-    .main-nav>li>a:hover:after, .main-nav>li.active>a:after {
-        width: 100%;
-    }
-    /* dropdown */
-    .has-dropdown {
-        position: relative;
-    }
-    .has-dropdown>a:before {
-        font-family: 'FontAwesome';
-        content: "\f054";
-        font-size: 6px;
-        margin-left: 6px;
-        float: right;
-        -webkit-transform: rotate(90deg);
-        -ms-transform: rotate(90deg);
-        transform: rotate(90deg);
-        -webkit-transition: 0.2s transform;
-        transition: 0.2s transform;
-    }
-    .dropdown {
-        position: absolute;
-        right: -50%;
-        top: 0;
-        background-color: rgb(254, 92, 100);
-        width: 200px;
-        -webkit-box-shadow: 0px 5px 5px -5px rgba(53, 64, 82, 0.2);
-        box-shadow: 0px 5px 5px -5px rgba(53, 64, 82, 0.2);
-        -webkit-transform: translateY(15px) translateX(50%);
-        -ms-transform: translateY(15px) translateX(50%);
-        transform: translateY(15px) translateX(50%);
-        opacity: 0;
-        visibility: hidden;
-        -webkit-transition: 0.2s all;
-        transition: 0.2s all;
-    }
-    .main-nav>.has-dropdown>.dropdown {
-        top: 100%;
-        right: 50%;
-    }
-    .main-nav>.has-dropdown>.dropdown .dropdown.dropdown-left {
-        right: 150%;
-    }
-    .dropdown li a {
-        display: block;
-        color: #FFF;
-        border-top: 1px solid rgba(250, 250, 250, 0.1);
-        padding: 10px 0px;
-    }
-    .dropdown li:nth-child(1) a {
-        border-top: none;
-    }
-    .has-dropdown:hover>.dropdown {
-        opacity: 1;
-        visibility: visible;
-        -webkit-transform: translateY(0px) translateX(50%);
-        -ms-transform: translateY(0px) translateX(50%);
-        transform: translateY(0px) translateX(50%);
-    }
-    .has-dropdown:hover>a:before {
-        -webkit-transform: rotate(0deg);
-        -ms-transform: rotate(0deg);
-        transform: rotate(0deg);
-    }
-    .nav-collapse {
-        display: none;
-    }
-}
-
-
-/* -- mobile nav -- */
-
-@media only screen and (max-width: 900px) {
-    #nav {
-        padding: 0px 0px;
-    }
-    #nav.nav-transparent {
-        background: rgba(255, 255, 255, 0.8);
-    }
-    .main-nav {
-        position: fixed;
-        right: 0;
-        height: calc(100vh - 80px);
-        -webkit-box-shadow: 0px 80px 0px 0px #1C1D21;
-        box-shadow: 10px 80px 40px 0px #1C1D21;
-        max-width: 2;
-        width: 0%;
-        -webkit-transform: translateX(100%);
-        -ms-transform: translateX(100%);
-        transform: translateX(100%);
-        margin: 0;
-        overflow-y: auto;
-        background: #ffffff;
-        -webkit-transition: 0.2s all;
-        transition: 0.2s all;
-    }
-    #nav.open .main-nav {
-        -webkit-transform: translateX(0%);
-        -ms-transform: translateX(0%);
-        transform: translateX(0%);
-        width: 100%;
-    }
-    .main-nav li {
-        border-top: 1px solid rgba(250, 250, 250, 0.1);
-    }
-    .main-nav li a {
-        display: block;
-        color: rgb(0, 54, 108);
-        -webkit-transition: 0.2s all;
-        transition: 0.2s all;
-    }
-    .main-nav>li.active {
-        border-left: 6px solid rgb(254, 92, 100);
-    }
-    .main-nav li a:hover, .main-nav li a:focus {
-        background-color: rgb(254, 92, 100);
-        color: #FFF;
-        opacity: 1;
-    }
-    .has-dropdown>a:after {
-        content: "\f054";
-        font-family: 'FontAwesome';
-        float: right;
-        -webkit-transition: 0.2s -webkit-transform;
-        transition: 0.2s -webkit-transform;
-        transition: 0.2s transform;
-        transition: 0.2s transform, 0.2s -webkit-transform;
-    }
-    .dropdown {
-        opacity: 0;
-        visibility: hidden;
-        height: 0;
-        background: rgba(250, 250, 250, 0.1);
-    }
-    .dropdown li a {
-        padding: 6px 10px;
-    }
-    .has-dropdown.open-drop>a:after {
-        -webkit-transform: rotate(90deg);
-        -ms-transform: rotate(90deg);
-        transform: rotate(90deg);
-    }
-    .has-dropdown.open-drop>.dropdown {
-        opacity: 1;
-        visibility: visible;
-        height: auto;
-        -webkit-transition: 0.2s all;
-        transition: 0.2s all;
-    }
-}
-
-
-/* -- nav btn collapse -- */
-
-.nav-collapse {
-    position: absolute;
-    float: right;
-    width: 40px;
-    height: 40px;
-    margin-top: 5px;
-    margin-right: 5px;
-    margin-left: 85%;
-    cursor: pointer;
-    z-index: 99999;
-}
-
-.nav-collapse span {
-    display: block;
-    -webkit-transform: translate(-50%, -50%);
-    -ms-transform: translate(-50%, -50%);
-    transform: translate(-50%, -50%);
-    position: absolute;
-    top: 60%;
-    left: 50%;
-    width: 25px;
-}
-
-.nav-collapse span:before, .nav-collapse span:after {
-    content: "";
-    display: block;
-}
-
-.nav-collapse span, .nav-collapse span:before, .nav-collapse span:after {
-    height: 4px;
-    background: rgb(254, 92, 100);
-    -webkit-transition: 0.2s all;
-    transition: 0.2s all;
-}
-
-.nav-collapse span:before {
-    -webkit-transform: translate(0%, 10px);
-    -ms-transform: translate(0%, 10px);
-    transform: translate(0%, 10px);
-}
-
-.nav-collapse span:after {
-    -webkit-transform: translate(0%, -14px);
-    -ms-transform: translate(0%, -14px);
-    transform: translate(0%, -14px);
-}
-
-#nav.open .nav-collapse span {
-    background: transparent;
-}
-
-#nav.open .nav-collapse span:before {
-    -webkit-transform: translateY(0px) rotate(-135deg);
-    -ms-transform: translateY(0px) rotate(-135deg);
-    transform: translateY(0px) rotate(-135deg);
-}
-
-#nav.open .nav-collapse span:after {
-    -webkit-transform: translateY(-4px) rotate(135deg);
-    -ms-transform: translateY(-4px) rotate(135deg);
-    transform: translateY(-4px) rotate(135deg);
-}
-
-
-/*------------------------------------*\
-	Header
-\*------------------------------------*/
-
-header {
-    position: relative;
-}
-
-#home {
-    height: 100vh;
-}
-
-#home .home-wrapper {
-    position: absolute;
-    left: 0px;
-    right: 0px;
-    top: 50%;
-    -webkit-transform: translateY(-50%);
-    -ms-transform: translateY(-50%);
-    transform: translateY(-50%);
-    text-align: left;
-}
-
-.home-content h1 {
-  text-transform: uppercase;
-}
-.home-content button {
-  margin-top: 20px;
-}
-
-.header-wrapper h2 {
-    display: inline-block;
-    margin-bottom: 0px;
-}
-
-.header-wrapper .breadcrumb {
-    float: right;
-    background: transparent;
-    margin-bottom: 0px;
-}
-
-.header-wrapper .breadcrumb .breadcrumb-item.active {
-    color: #868F9B;
-}
-
-.breadcrumb>li+li:before {
-    color: #868F9B;
-}
-
-
-/*------------------------------------*\
-	About
-\*------------------------------------*/
-
-
-.about {
-    position: relative;
-    text-align: center;
-    padding: 40px 20px;
-    border: 1px solid #EEE;
-    margin: 15px 0px;
-}
-
-.about i {
-    font-size: 36px;
-    color: rgb(254, 92, 100);
-    margin-bottom: 20px;
-}
-
-.about:after {
-    content: "";
-    position: absolute;
-    left: 0;
-    top: 0;
-    bottom: 0;
-    width: 0%;
-    z-index: -1;
-    -webkit-transition: 0.2s width;
-    transition: 0.1s width;
-}
-
-.about:hover:after {
-    width: 100%;
-}
-
-.about h3 {
-    -webkit-transition: 0.2s color;
-    transition: 0.2s color;
-}
-
-.about:hover h3 {
-    color: #fff;
-}
-@media only screen and (min-width: 768px) {
-    .about {
-        font-size: 20px;
-        padding-top: 0px;
-        padding-left: 190px;
-        padding-right: 190px;
-        padding-bottom: 70px;
-        text-align: center;
-        font-weight: bolder;
-        border: 0px solid grey;
-    }
-    #about-container {
-        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-        padding-top: 50px;
-    }
-}
-/*------------------------------------*\
-	Why CA
-\*------------------------------------*/
-
-.whyca {
-    position: relative;
-    text-align: center;
-    padding: 40px 20px;
-    border: 0px solid #EEE;
-    margin: 15px 0px;
-    background-color: rgb(255, 255, 255);
-    height: 250px;
-    border-radius: 20px;
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-
-}
-
-.whyca i {
-    font-size: 36px;
-    color: rgb(254, 92, 100);
-    margin-bottom: 20px;
-}
-
-.whyca:after {
-    content: "";
-    background-color: rgb(254, 92, 100);
-    position: absolute;
-    left: 0;
-    top: 0;
-    bottom: 0;
-    width: 0%;
-    z-index: -1;
-    -webkit-transition: 0.2s width;
-    transition: 0.2s width;
-}
-
-.whyca:hover:after {
-    width: 100%;
-}
-
-.whyca h3 {
-    -webkit-transition: 0.2s color;
-    transition: 0.2s color;
-    color: rgb(254, 92, 100);
-}
-
-.whyca:hover h3 {
-    color: rgb(34, 34, 34);
-}
-
-.whyca:hover i {
-    color: rgb(0, 54, 108);
-}
-
-/*------------------------------------*\
-    Responsibilities
-\*------------------------------------*/
-
-.responsibilities {
-    position: relative;
-    text-align: center;
-    padding: 40px 20px;
-    border: 1px solid #EEE;
-    margin: 15px 0px;
-}
-
-.responsibilities i {
-    font-size: 36px;
-    color: rgb(254, 92, 100);
-    margin-bottom: 20px;
-}
-
-.responsibilities:after {
-    content: "";
-    background-color: rgb(0, 54, 108);
-    position: absolute;
-    left: 0;
-    top: 0;
-    bottom: 0;
-    width: 50%;
-    z-index: -1;
-    -webkit-transition: 0.2s width;
-    transition: 0.1s width;
-}
-
-.responsibilities:hover:after {
-    width: 100%;
-}
-
-.responsibilities h3 {
-    -webkit-transition: 0.2s color;
-    transition: 0.2s color;
-}
-
-.responsibilities:hover h3 {
-    color: #fff;
-}
-
-
-/*------------------------------------*\
-	Incentives
-\*------------------------------------*/
-
-.incentive {
-    position: relative;
-    padding: 0px 20px 40px 70px;
-    margin: 0px 0px;
-    border: 0px black solid;
-    color: rgb(0, 0, 0);
-    padding-bottom: 25px;
-}
-
-.incentive:hover {
-    color: rgb(255, 255, 255);
-}
-
-.incentive i {
-    position: absolute;
-    left: 20px;
-    text-align: center;
-    font-size: 32px;
-    color: rgb(254, 92, 100);
-    border-radius: 50%;
-}
-
-.incentive:after {
-    content: "";
-    background-color: rgb(254, 92, 100);
-    position: absolute;
-    left: 0;
-    top: 0;
-    bottom: 0;
-    width: 0%;
-    z-index: -1;
-    -webkit-transition: 0.2s width;
-    transition: 0.2s width;
-}
-
-.incentive:hover:after {
-    width: 100%;
-}
-
-.incentive h3 {
-  -webkit-transition: 0.2s color;
-  transition: 0.2s color;
-}
-
-.incentives:hover h3 {
-    color: #fff;
-}
-
-@media only screen and (min-width: 768px) {
-    .incentive {
-        font-size: 20px;
-    }
-}
-
-
-/*------------------------------------*\
-	FAQ
-\*------------------------------------*/
-
-
-.faq .accordion {
-    background-color: #eee;
-    color: #444;
-    cursor: pointer;
-    padding: 18px;
-    width: 100%;
-    text-align: left;
-    border: none;
-    outline: none;
-    transition: 0.4s;
-  }
-  
-  /* Add a background color to the button if it is clicked on (add the .active class with JS), and when you move the mouse over it (hover) */
-  .faq .active, .accordion:hover {
-    background-color: #ccc;
-  }
-  
-  /* Style the accordion panel. Note: hidden by default */
-  .faq .panel {
-    padding: 0 18px;
-    background-color: white;
-    display: none;
-    overflow: hidden;
-  }
-
-
-/*------------------------------------*\
-	Portfolio
-\*------------------------------------*/
-
-.work {
-    position: relative;
-    padding: 20px;
-    border-top: 1px solid white;
-    border-bottom: 1px solid white;
-    
-}
-
-.work .overlay {
-    background: rgb(156, 224, 209);
-    position: absolute;
-    top: 0px;
-    left: 0px;
-    right: 0px;
-    bottom: 0px;
-    opacity: 0;
-    -webkit-transition: 0.2s opacity;
-    transition: 1s opacity;
-    -webkit-transition-delay: 0.2s;
-    transition-delay: 0.2s;
-}
-
-.work:hover .overlay {
-    -webkit-transition-delay: 0s;
-    transition-delay: 0s;
-    opacity: 1;
-}
-
-.work .work-content {
-    position: absolute;
-    left: 25px;
-    right: 25px;
-    top: 50%;
-    text-align: center;
-    -webkit-transform: translateY(-50%);
-    -ms-transform: translateY(-50%);
-    transform: translateY(-50%);
-}
-
-.work .work-content h3 {
-    -webkit-transform: translateY(100%);
-    -ms-transform: translateY(100%);
-    transform: translateY(100%);
-    opacity: 0;
-    color: #FFF;
-    margin-bottom: 10px;
-    -webkit-transition: 0.2s all;
-    transition: 0.2s all;
-    -webkit-transition-delay: 0.1s;
-    transition-delay: 0.1s;
-}
-
-.work:hover .work-content h3 {
-    -webkit-transform: translateY(0%);
-    -ms-transform: translateY(0%);
-    transform: translateY(0%);
-    opacity: 1;
-    -webkit-transition-delay: 0.1s;
-    transition-delay: 0.1s;
-}
-
-.work .work-content span {
-    font-size: 30px;
-    display: block;
-    text-transform: uppercase;
-    -webkit-transform: translateY(100%);
-    -ms-transform: translateY(100%);
-    transform: translateY(100%);
-    opacity: 0;
-    color: rgb(254, 92, 100);
-    margin-bottom: 5px;
-    -webkit-transition: 0.2s all;
-    transition: 0.2s all;
-    -webkit-transition-delay: 0.2s;
-    transition-delay: 0.2s;
-}
-
-.work:hover .work-content span {
-    -webkit-transform: translateY(0%);
-    -ms-transform: translateY(0%);
-    transform: translateY(0%);
-    opacity: 1;
-    -webkit-transition-delay: 0s;
-    transition-delay: 0s;
-}
-
-.work .work-link {
-    text-align: center;
-    margin-top: 20px;
-    opacity: 0;
-    -webkit-transition: 0.2s opacity;
-    transition: 0.2s opacity;
-}
-
-.work .work-link a {
-    display: inline-block;
-    width: 50px;
-    height: 50px;
-    background-color: rgb(254, 92, 100);
-    color: #FFF;
-    line-height: 50px;
-    text-align: center;
-}
-
-.work:hover .work-link {
-    -webkit-transition-delay: 0.2s;
-    transition-delay: 0.2s;
-    opacity: 1;
-}
-
-.work i {
-    color: rgb(254, 92, 100);
-}
-
-
-/*------------------------------------*\
-	Services
-\*------------------------------------*/
-
-.service {
-    position: relative;
-    padding: 40px 20px 40px 70px;
-    margin: 15px 0px;
-    border: 2px solid rgb(254, 92, 100);
-    background-color: rgb(255, 255, 255);
-    color: black;
-}
-
-.service i {
-    position: absolute;
-    left: 20px;
-    text-align: center;
-    font-size: 32px;
-    color: rgb(254, 92, 100);
-    border-radius: 50%;
-}
-
-.service:after {
-    content: "";
-    background-color: #1C1D21;
-    position: absolute;
-    left: 0;
-    top: 0;
-    bottom: 0;
-    width: 0%;
-    z-index: -1;
-    -webkit-transition: 0.2s width;
-    transition: 0.2s width;
-}
-
-.service:hover:after {
-    width: 100%;
-}
-
-.service h3 {
-  -webkit-transition: 0.2s color;
-  transition: 0.2s color;
-}
-
-.service:hover h3 {
-    color: #fff;
-}
-
-/*------------------------------------*\
-	Why choose us
-\*------------------------------------*/
-
-.feature {
-    margin: 15px 0px;
-}
-.feature i {
-    float: left;
-    padding: 5px;
-    border-radius: 50%;
-    color: rgb(254, 92, 100);
-    border: 1px solid rgb(254, 92, 100);
-    margin-right: 5px;
-}
-
-/*------------------------------------*\
-	Numbers
-\*------------------------------------*/
-
-.number {
-    text-align: center;
-    margin: 15px 0px;
-}
-
-.number i {
-    color: rgb(254, 92, 100);
-    font-size: 36px;
-    margin-bottom: 20px;
-}
-
-.number h3 {
-    font-size: 36px;
-    margin-bottom: 10px;
-}
-
-
-/*------------------------------------*\
-	Pricing
-\*------------------------------------*/
-
-.pricing {
-    position: relative;
-    text-align: center;
-    border: 1px solid #EEE;
-    background-color: #FFF;
-    z-index: 11;
-    margin: 15px 0px;
-}
-
-.pricing::after {
-    content: "";
-    background-color: #1C1D21;
-    position: absolute;
-    left: 0;
-    right: 0;
-    top: 0;
-    height: 0%;
-    z-index: -1;
-    -webkit-transition: 0.2s height;
-    transition: 0.2s height;
-}
-
-.pricing:hover:after {
-    height: 100%;
-}
-
-.pricing .price-head {
-    position: relative;
-    margin-bottom: 20px;
-}
-
-.pricing .price-title {
-    display: block;
-    padding: 40px 0px 20px;
-    text-transform: uppercase;
-    -webkit-transition: 0.2s color;
-    transition: 0.2s color;
-}
-
-.pricing:hover .price-title {
-    color: rgb(254, 92, 100);
-}
-
-.pricing .price {
-    position: relative;
-    width: 140px;
-    height: 140px;
-    line-height: 140px;
-    text-align: center;
-    margin: auto;
-    border-radius: 50%;
-    border: 2px solid rgb(254, 92, 100);
-}
-
-.pricing .price h3 {
-  font-size: 42px;
-  margin: 0px;
-  -webkit-transition: 0.2s color;
-  transition: 0.2s color;
-  -webkit-transform: translateY(-50%);
-      -ms-transform: translateY(-50%);
-          transform: translateY(-50%);
-  top: 50%;
-  position: absolute;
-  left: 0;
-  right: 0;
-}
-
-.pricing:hover .price h3 {
-    color: #fff;
-}
-
-.pricing .duration {
-    display: block;
-    font-size: 14px;
-    text-transform: uppercase;
-    color: #10161A;
-    -webkit-transition: 0.2s color;
-    transition: 0.2s color;
-}
-
-.pricing:hover .duration {
-    color: #fff;
-}
-
-.pricing .price-btn {
-    padding-top: 20px;
-    padding-bottom: 40px;
-}
-
-/*------------------------------------*\
-	Testimonial
-\*------------------------------------*/
-
-.testimonial {
-    margin: 15px 0px;
-}
-
-.testimonial-meta {
-    position: relative;
-    padding-left: 90px;
-    height: 70px;
-    margin-bottom: 20px;
-    padding-top: 10px;
-}
-
-.testimonial img {
-    position: absolute;
-    left: 0;
-    top: 0;
-    width: 70px !important;
-    height: 70px !important;
-    border-radius: 50%;
-}
-
-.testimonial h3 {
-    margin-bottom: 5px;
-}
-
-.testimonial span {
-    font-size: 14px;
-    color: rgb(254, 92, 100);
-    text-transform: uppercase;
-}
-
-
-/*------------------------------------*\
-	Team
-\*------------------------------------*/
-
-.team {
-    position: relative;
-    background-color: white;
-    padding: 40px 20px;
-    margin: 10px 0px;
-    border-radius: 10%;
-}
-
-.team::after {
-    content: "";
-    background-color: #1C1D21;
-    position: absolute;
-    left: 0;
-    right: 0;
-    top: 0;
-    height: 0%;
-    z-index: 1;
-    border-radius: 50%;
-    -webkit-transition: 0.2s height;
-    transition: 0.2s height;
-}
-
-.team:hover:after {
-    height: 100%;
-}
-
-.team-img {
-    position: relative;
-    margin-bottom: 20px;
-    z-index: 11;
-}
-
-.team-img>img {
-    display: block;
-    margin-left:auto;
-    margin-right:auto;
-    position: relative;
-    width: 280px;
-    height: 300px;
-    overflow: hidden;
-    border-radius: 50%;
-}
-.team-img1 {
-    position: relative;
-    margin-bottom: 20px;
-    z-index: 11;
-}
-
-.team-img1>img {
-    display: block;
-    margin-left:auto;
-    margin-right:auto;
-    position: relative;
-    width: 17em;
-    height: 19em;
-    overflow: hidden;
-    border-radius: 50%;
-}
-
-
-.team .overlay {
-    background: #1C1D21;
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    top: 0;
-    opacity: 0;
-    
-    border-radius: 50%;
-    -webkit-transition: 0.2s opacity;
-    transition: 0.2s opacity;
-}
-
-.team:hover .overlay {
-    opacity: 0.8;
-}
-
-.team .team-content {
-    text-align: center;
-    position: relative;
-    z-index: 11;
-}
-
-.team .team-content h3 {
-    margin-bottom: 10px;
-    -webkit-transition: 0.2s color;
-    transition: 0.2s color;
-}
-
-.team .team-content span {
-    font-size: 14px;
-    text-transform: uppercase;
-    -webkit-transition: 0.2s color;
-    transition: 0.2s color;
-}
-.team .team-content h5 {
-    font-size: 12px;
-    text-transform: lowercase;
-    -webkit-transition: 0.2s color;
-    transition: 0.2s color;
-}
-.team .team-content h3 {
-    color: rgb(254, 92, 100);
-}
-.team .team-content h5 {
-    color: rgb(254, 92, 100);
-}
-.team:hover .team-content h3 {
-    color: #FFF;
-}
-
-.team:hover .team-content span {
-    color: rgb(254, 92, 100);
-}
-.team:hover .team-content h5 {
-    color: #FFF;
-}
-
-
-.team .team-social {
-    position: absolute;
-    top: 10px;
-    right: 0;
-    opacity: 0;
-    -webkit-transition: 0.2s opacity;
-    transition: 0.2s opacity;
-}
-
-.team .team-social a {
-  padding: 15px;
-  font-size: 20px;
-  width: 15px;
-  text-align: center;
-  text-decoration: none;
-  border-radius: 10%;
-    background-color: rgb(254, 92, 100);
-    color: #FFF;
-}
-
-.team:hover .team-social {
-    opacity: 1;
-}
-
-
-/*------------------------------------*\
-	Blog
-\*------------------------------------*/
-
-.blog {
-    background-color: #FFF;
-    margin: 15px 0px;
-}
-
-.blog .blog-content {
-    padding: 20px 20px 40px;
-}
-
-.blog .blog-meta {
-    margin-bottom: 20px;
-}
-
-.blog .blog-meta li {
-    display: inline-block;
-    font-size: 14px;
-    color: #10161A;
-    margin-right: 10px;
-}
-
-.blog .blog-meta li i {
-    color: rgb(254, 92, 100);
-    margin-right: 5px;
-}
-
-/*------------------------------------*\
-	Blog post
-\*------------------------------------*/
-
-#main .blog .blog-content {
-  padding: 20px 0px 0px;
-}
-
-#main .blog {
-  margin-top: 0px;
-}
-
-/* -- blog tags -- */
-
-.blog-tags {
-    margin: 40px 0px;
-}
-
-.blog-tags h5 {
-    margin-bottom: 0;
-    display: inline-block;
-}
-
-.blog-tags a {
-    display: inline-block;
-    padding: 6px 13px;
-    font-size: 14px;
-    margin: 2px 0px;
-    background: #F4F4F4;
-    color: #10161A;
-}
-
-.blog-tags a:hover {
-  color: #FFF;
-  background-color: rgb(254, 92, 100);
-}
-
-.blog-tags a i {
-    margin-right: 3px;
-    color: rgb(254, 92, 100);
-}
-
-.blog-tags a:hover i {
-  color: #FFF;
-}
-
-
-/* -- blog author -- */
-
-.blog-author {
-    margin: 40px 0px;
-}
-
-.blog-author .media .media-left {
-    padding-right: 20px;
-}
-
-.blog-author .media {
-    padding: 20px;
-    border: 1px solid #EEE;
-}
-
-.blog-author .media .media-heading {
-    padding-bottom: 20px;
-    margin-bottom: 20px;
-    border-bottom: 1px solid #EEE;
-}
-
-.blog-author .media .media-heading h3 {
-    display: inline-block;
-    margin: 0;
-    text-transform: uppercase;
-}
-
-.blog-author .media .media-heading .author-social {
-  float: right;
-}
-
-.blog-author .author-social a {
-    display: inline-block;
-    width: 24px;
-    height: 24px;
-    text-align: center;
-    line-height: 24px;
-    border-radius: 3px;
-    margin-left: 5px;
-    color: #FFF;
-    background-color: rgb(254, 92, 100);
-}
-
-/* -- blog comments -- */
-
-.blog-comments {
-    margin: 40px 0px;
-}
-
-.blog-comments .media {
-    padding: 20px;
-    background-color: #FFF;
-    border-top: 1px solid #EEE;
-    border-bottom: 0px;
-    border-right: 1px solid #EEE;
-    border-left: 1px solid #EEE;
-    margin-top: 0px;
-}
-
-.blog-comments .media:first-child {
-    border-bottom: 0px;
-}
-
-.blog-comments .media:last-child {
-    border-bottom: 1px solid #EEE;
-}
-
-.blog-comments .media .media-left {
-  padding-right: 20px;
-}
-
-.blog-comments .media .media-body .media-heading {
-    text-transform: uppercase;
-    margin-bottom:10px;
-}
-
-.blog-comments .media .media-body .media-heading .time {
-    font-size: 12px;
-    margin-left: 20px;
-    font-weight: 400;
-    color: #868F9B;
-}
-
-.blog-comments .media .media-body .media-heading .reply {
-    float: right;
-    margin: 0;
-    font-size: 12px;
-    text-transform: uppercase;
-    font-weight: 400;
-}
-
-.blog-comments .media.author {
-    background-color: #F4F4F4;
-    border-color: rgb(254, 92, 100);
-    border-bottom: 1px solid rgb(254, 92, 100);
-}
-.blog-comments .media.author>.media-body>.media-heading {
-    color: rgb(254, 92, 100);
-}
-
-.blog-comments .media.author + .media {
-    border-top: 0px;
-}
-
-/* blog reply form */
-
-.reply-form {
-    margin: 40px 0px;
-}
-
-.reply-form form .input, .reply-form form .input , .reply-form form textarea {
-	margin-bottom:20px;
-}
-
-.reply-form form .input, .reply-form form .input {
-    width: calc(50% - 10px);
-    display: inline-block;
-}
-
-.reply-form form .input:nth-child(2) {
-    margin-left: 15px;
-}
-
-
-/*------------------------------------*\
-	Blog sidebar
-\*------------------------------------*/
-
-#aside .widget {
-    margin-bottom: 40px;
-}
-
-.widget h3 {
-  text-transform: uppercase;
-}
-
-/* -- search sidebar -- */
-
-#aside .widget-search {
-    position: relative;
-}
-
-#aside .widget-search .search-input {
-    padding-right: 50px;
-}
-
-#aside .widget-search .search-btn {
-    position: absolute;
-    right: 0px;
-	  bottom: 0px;
-    width: 40px;
-    height: 40px;
-    border: none;
-    line-height: 40px;
-    background-color: transparent;
-    color: rgb(254, 92, 100);
-}
-
-/* -- category sidebar -- */
-
-.widget-category a {
-    display: block;
-    font-size: 14px;
-    color: #354052;
-    border-bottom: 1px solid #EEE;
-    padding: 5px;
-}
-
-.widget-category a:nth-child(1) {
-  border-top: 1px solid #EEE;
-}
-
-.widget-category a span {
-    float: right;
-    color: rgb(254, 92, 100);
-}
-
-.widget-category a:hover {
-    color: rgb(254, 92, 100);
-}
-
-/* -- tags sidebar -- */
-
-.widget-tags a {
-  display: inline-block;
-  padding: 6px 13px;
-  font-size: 14px;
-  margin: 2px 0px;
-  background: #F4F4F4;
-  color: #10161A;
-}
-
-.widget-tags a:hover {
-  color: #FFF;
-  background-color: rgb(254, 92, 100);
-}
-
-/* -- posts sidebar -- */
-
-.widget-post {
-    min-height: 70px;
-    margin-bottom: 25px;
-}
-
-.widget-post img {
-    display: block;
-    float: left;
-    margin-right: 10px;
-    margin-top: 5px;
-}
-
-.widget-post a {
-    display: block;
-    color: #10161A;
-}
-
-.widget-post a:hover {
-    color: rgb(254, 92, 100);
-}
-
-.widget-post .blog-meta {
-    display: inline-block;
-}
-
-.widget-post .blog-meta li {
-    display: inline-block;
-    margin-right: 5px;
-    color: rgb(254, 92, 100);
-    font-size: 12px;
-}
-
-.widget-post li i {
-    color: rgb(254, 92, 100);
-    margin-right: 5px;
-}
-
-
-
-/*------------------------------------*\
-	Contact
-\*------------------------------------*/
-
-.contact {
-    margin: 15px 0px;
-    text-align: center;
-    background-color: white;
-    padding: 20px;
-    border-radius: 10px;
-    height: 200px;
-}
-.contact:hover {
-    background-color: rgb(0, 54, 108);
-}
-
-.contact:hover i {
-    font-size: 60px;
-    color: rgb(254, 92, 100);
-}
-
-.contact:hover h3 {
-    color: white;
-}
-
-.contact:hover p {
-    color: white;
-}
-
-.contact i {
-    font-size: 36px;
-    color: rgb(254, 92, 100);
-    margin-bottom: 20px;
-}
-
-.contact-form {
-    text-align: center;
-    margin-top: 40px;
-}
-
-.contact-form .input {
-    margin-bottom: 20px;
-}
-
-
-.contact-form .input:nth-child(1), .contact-form .input:nth-child(2) {
-    width: calc(50% - 10px);
-}
-
-.contact-form .input:nth-child(2) {
-    margin-left: 15px;
-}
-.contact p {
-    color: rgb(0, 54, 108);
-}
-.contact h3 {
-    color: rgb(0, 54, 108);
-}
-
-/*------------------------------------*\
-	Footer
-\*------------------------------------*/
-
-#footer {
-    position: relative;
-}
-
-.footer-logo {
-    text-align: center;
-    margin: 30px;
-}
-
-.footer-logo>a>img {
-    max-height: 80px;
-}
-
-.footer-contact {
-    text-align: center;
-    margin-bottom: 1%;
-    margin-top: 1%;
-    padding-bottom: 1%;
-    padding-top: 1%;
-    color: white;
-
-}
-
-.footer-follow {
-    text-align: center;
-    margin-bottom: 0px;
-}
-
-.footer-follow li {
-    display: inline-block;
-    margin-right: 10px;
-    margin-bottom: 13px;
-}
-
-.footer-follow li a {
-  display: inline-block;
-  width: 50px;
-  height: 50px;
-  line-height: 50px;
-  text-align: center;
-  border-radius: 3px;
-  background-color: rgb(254, 92, 100);
-  color: white;
-  
-}
-
-#mail {
-    transition: width 0.1s;
-}
-#mail:hover {
-    width: 150px;
-}
-
-.footer-copyright p {
-    text-align: center;
-    font-size: 14px;
-    text-transform: uppercase;
-    margin: 0;
-}
-
-
-/*------------------------------------*\
-	Responsive
-\*------------------------------------*/
-
-
-@media only screen and (max-width: 991px) {}
-
-@media only screen and (max-width: 767px) {
-  .section-header h2.title {
-  		font-size:31.5px;
-	}
-
-  .main-btn , .default-btn , .outline-btn , .white-btn  {
-  		padding: 8px 22px;
-  		font-size:14px;
-	}
-
-  .home-content h1 {
-		font-size:50px;
-        letter-spacing: 3px;
-        margin-bottom: 10px;
-        /* line-height: 50px; */
-	}
-
-  .header-wrapper h2 {
-      margin-bottom: 20px;
-      text-align: center;
-      display: block;
-  }
-  .home-content h4 {
-      font-size: 30px;
-  }
-
-  .header-wrapper .breadcrumb {
-      float: none;
-      text-align: center;
-  }
-}
-
-@media only screen and (max-width: 480px) {
-  #portfolio [class*='col-xs'] {
-		  width:100%;
-	}
-
-  #numbers [class*='col-xs'] {
-		  width:100%;
-	}
-
-  .contact-form .input:nth-child(1), .contact-form .input:nth-child(2) {
-      width: 100%;
-  }
-  .contact-form .input:nth-child(2) {
-      margin-left: 0px;
-  }
-
-  .reply-form form .input, .reply-form form .input {
-      width: 100%;
-  }
-  .reply-form form .input:nth-child(2) {
-      margin-left: 0px;
-  }
-
-
-
-  .blog-author .media .media-left {
-      display: block;
-      padding-right: 0;
-      margin-bottom: 20px;
-  }
-  .blog-author .media {
-      text-align: center;
-  }
-  .blog-author .media .media-heading .author-social {
-      margin-top: 10px;
-      float: none;
-  }
-  .blog-author .media .media-left img {
-      margin: auto;
-  }
-
-  .blog-comments .media .media {
-      margin:0px -15px;
-  }
-}
-
-
-
-/*------------------------------------*\
-	Owl theme
-\*------------------------------------*/
-
-/* -- dots -- */
-
-.owl-theme .owl-dots .owl-dot span {
-    border: none;
-    background: #EEE;
-    -webkit-transition: 0.2s all;
-    transition: 0.2s all;
-}
-
-.owl-theme .owl-dots .owl-dot:hover span {
-    background: rgb(254, 92, 100);
-}
-.owl-theme .owl-dots .owl-dot.active span {
-	  background: rgb(254, 92, 100);
-	  width:20px;
-}
-
-/* -- nav -- */
-
-.owl-theme .owl-nav {
-    opacity: 0;
-    -webkit-transition: 0.2s opacity;
-    transition: 0.2s opacity;
-}
-
-.owl-theme:hover .owl-nav {
-    opacity: 1;
-}
-
-.owl-theme .owl-nav [class*='owl-'] {
-    position: absolute;
-    top: 50%;
-    -webkit-transform: translateY(-50%);
-        -ms-transform: translateY(-50%);
-            transform: translateY(-50%);
-    background: rgb(254, 92, 100);
-    color: #FFF;
-  	padding: 0px;
-  	width: 50px;
-  	height: 50px;
-  	border-radius:3px;
-  	line-height: 50px;
-  	margin: 0;
-}
-
-.owl-theme .owl-prev {
-    left: 0px;
-}
-
-.owl-theme .owl-next {
-    right: 0px;
-}
-
-.owl-theme .owl-nav [class*='owl-']:hover {
-    opacity: 0.8;
-    background: rgb(254, 92, 100);
-}
-
-
-/*------------------------------------*\
-	Back to top
-\*------------------------------------*/
-
-#back-to-top {
-  	display:none;
-  	position: fixed;
-  	bottom: 20px;
-  	right: 20px;
-  	width: 50px;
-  	height: 50px;
-  	line-height: 50px;
-  	text-align: center;
-  	background: rgb(254, 92, 100);
-  	border-radius:3px;
-  	color: white;
-  	z-index: 9999;
-    -webkit-transition: 0.2s opacity;
-    transition: 0.2s opacity;
-  	cursor: pointer;
-}
-
-#back-to-top:after {
-    content: "\f062";
-    font-family: 'FontAwesome';
-}
-
-#back-to-top:hover {
-    opacity: 0.8;
-}
-
-/*------------------------------------*\
-	Preloader
-\*------------------------------------*/
-
-
-#preloader {
-    position: fixed;
-    left: 0;
-    top: 0;
-    bottom: 0;
-    right: 0;
-    background-color: #FFF;
-    z-index: 99999;
-}
-
-.preloader {
-    position: absolute;
-    left: 50%;
-    top: 50%;
-    -webkit-transform: translate(-50%, -50%);
-        -ms-transform: translate(-50%, -50%);
-            transform: translate(-50%, -50%);
-}
-.preloader span {
-    display: inline-block;
-    background-color: rgb(254, 92, 100);
-    width: 25px;
-    height: 25px;
-    -webkit-animation: 1s preload ease-in-out infinite;
-            animation: preload 1s ease-in-out infinite;
-    -webkit-transform: scale(0);
-        -ms-transform: scale(0);
-            transform: scale(0);
-    border-radius:50%;
-}
-
-.preloader span:nth-child(1) {
-    -webkit-animation-delay: 0s;
-            animation-delay: 0s;
-}
-
-.preloader span:nth-child(2) {
-    -webkit-animation-delay: 0.1s;
-            animation-delay: 0.1s;
-}
-
-.preloader span:nth-child(3) {
-    -webkit-animation-delay: 0.15s;
-            animation-delay: 0.15s;
-}
-
-.preloader span:nth-child(4) {
-    -webkit-animation-delay: 0.2s;
-            animation-delay: 0.2s;
-}
-
-@-webkit-keyframes preload {
-	0% {
-	   -webkit-transform:scale(0);
-	           transform:scale(0);
-	}
-  50% {
-    -webkit-transform:scale(1);
-            transform:scale(1);
-  }
-  100% {
-    -webkit-transform:scale(0);
-            transform:scale(0);
-  }
-}
-
-@keyframes preload {
-	0% {
-	   -webkit-transform:scale(0);
-	           transform:scale(0);
-	}
-  50% {
-    -webkit-transform:scale(1);
-            transform:scale(1);
-  }
-  100% {
-    -webkit-transform:scale(0);
-            transform:scale(0);
-  }
-}
-
-
-/*------------------------------------*\
-	Reviews
-\*------------------------------------*/
-
-
-#quote-carousel {
-    padding: 0 10px 30px 10px;
-    margin-top: 60px;
-}
-#quote-carousel .carousel-control {
-    background: none;
-    color: #CACACA;
-    font-size: 2.3em;
-    text-shadow: none;
-    margin-top: 30px;
-}
-#quote-carousel .carousel-indicators {
-    position: relative;
-    right: 50%;
-    top: auto;
-    bottom: 0px;
-    margin-top: 20px;
-    margin-right: -19px;
-}
-#quote-carousel .carousel-indicators li {
-    width: 35px;
-    height: 35px;
-    cursor: pointer;
-    border: 1px solid #ccc;
-    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
-    border-radius: 50%;
-    opacity: 0.4;
-    overflow: hidden;
-    transition: all .4s ease-in;
-    vertical-align: middle;
-}
-#quote-carousel .carousel-indicators .active {
-    width: 70px;
-    height: 70px;
-    opacity: 1;
-    transition: all .2s;
-}
-.item blockquote {
-    border-left: none;
-    margin: 0;
-}
-.item blockquote p:before {
-    content: "\f10d";
-    font-family: 'Fontawesome';
-    float: left;
-    margin-right: 10px;
-}
-
-#past{
-    margin-bottom: 30px;
-}
-
-
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="chrome=1">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+
+	<title>E-Cell | CA</title>
+
+	<link rel="icon" href="img/logo-title.png" type="image/x-icon">
+
+	<!-- Google font -->
+	<link href="https://fonts.googleapis.com/css?family=Montserrat:400,700%7CVarela+Round" rel="stylesheet">
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
+
+	<!-- Bootstrap -->
+	<link type="text/css" rel="stylesheet" href="css/bootstrap.min.css" />
+
+
+	<!-- Owl Carousel -->
+	<link type="text/css" rel="stylesheet" href="css/owl.carousel.css" />
+	<link type="text/css" rel="stylesheet" href="css/owl.theme.default.css" />
+
+	<!-- Magnific Popup -->
+	<link type="text/css" rel="stylesheet" href="css/magnific-popup.css" />
+
+	<!-- Font Awesome Icon -->
+	<link rel="stylesheet" href="css/font-awesome.min.css">
+
+	<!-- Custom stlylesheet -->
+	<link type="text/css" rel="stylesheet" href="css/style.css" />
+
+	<!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+	<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+	<!--[if lt IE 9]>
+		<script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+		<script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+	<![endif]-->
+	<script src="https://www.gstatic.com/firebasejs/7.17.2/firebase-app.js"></script>
+	<script src="https://www.gstatic.com/firebasejs/7.17.2/firebase-analytics.js"></script>
+	<script src="https://www.gstatic.com/firebasejs/7.17.2/firebase-auth.js"></script>
+	<script src="https://www.gstatic.com/firebasejs/7.17.2/firebase-firestore.js"></script>
+	<script src="js/CA_java.js"></script>
+	<style>
+		html {
+			/* scroll-snap-type: mandatory; */
+			/* scroll-snap-points-y: repeat(150vh); */
+			scroll-behavior: smooth;
+		}
+
+		.hello {
+			scroll-snap-align: center;
+			scroll-padding-top: 40px;
+		}
+
+		@media(max-width: 900px) {
+			html {
+				scroll-snap-type: none;
+			}
+		}
+	</style>
+</head>
+
+<body>
+	<!-- Header -->
+	<header id="home" class="hello">
+		<!-- Background Image -->
+		<div class="bg-img" style="background-image: url('img/head_new_green.jpg');">
+			<div class="overlay"></div>
+		</div>
+		<div class="bg-img-small" style="background-image: url('img/no-img.jpg');">
+			<div class="overlay"></div>
+		</div>
+		<!-- /Background Image -->
+
+		<!-- Nav -->
+		<nav id="nav" class="navbar nav-transparent">
+			<div class="container">
+
+				<div class="navbar-header" style="width: 10vw;">
+					<!-- Logo -->
+					<div class="navbar-brand">
+						<a href="index.html">
+							<img class="logo" src="img/logo-alt.png" alt="logo">
+							<img class="logo-alt" src="img/logo-alt.png" alt="logo">
+						</a>
+					</div>
+					<!-- /Logo -->
+
+					<!-- Collapse nav button -->
+					<div class="nav-collapse">
+						<span></span>
+					</div>
+					<!-- /Collapse nav button -->
+				</div>
+
+				<!--  Main navigation  -->
+				<ul class="main-nav nav navbar-nav navbar-right">
+					<li><a href="#about">About Us</a></li>
+					<li><a href="#whyca">Why CA</a></li>
+					<li><a href="#responsibilities">Responsibilities</a></li>
+					<li><a href="#incentives">Incentives</a></li>
+					<li><a href="#terms">Terms</a></li>
+					<li><a href="#rating">Reviews</a></li>
+					<li><a href="team.html">Team</a></li>
+					<!--<li><a href="#contact">Contact</a></li>-->
+
+
+					<!--<li><a href="#home">Home</a></li>
+					<li><a href="#about">Vision</a></li>
+					<li><a href="#portfolio">What We Do</a></li>
+					<li><a href="#service">Initiatives</a></li>
+					<li><a href="#team">Team</a></li>
+					<li><a href="esummit/index.html">E-Summit</a></li>
+					
+					<li class="has-dropdown"><a href="#blog">B-log</a>
+						<ul class="dropdown">
+							<li><a href="blog-single.html">Business Log</a></li>
+						</ul>
+					</li>
+					<li><a href="#contact">Contact</a></li>-->
+				</ul>
+				<!-- /Main navigation -->
+
+			</div>
+		</nav>
+		<!-- /Nav -->
+
+		<!-- home wrapper -->
+		<div class="home-wrapper">
+			<div class="container">
+				<div class="row">
+
+					<!-- home content -->
+					<div class="col-md-10">
+						<div class="home-content">
+							<h3 style="color: rgb(254, 92, 100); font-size: 30px;">E-Cell IIT HYDERABAD'S</h3>
+							<h1 class="white-text">Campus</h1>
+							<h1 class="white-text">Ambassador</h1>
+							<h1 class="white-text">Program</h1>
+
+							<!-- <button class="white-btn" onclick="showDeadline()"><a style="color: white;">APPLY FOR
+									CA</a></button> -->
+							<!-- <button class="white-btn" onclick="dashboard()"><a
+									style="color: white;">DASHBOARD</a></button> -->
+
+							<h4
+								style="color: rgb(254, 92, 100); border: solid 2px; width: max-content; padding: 12.5px; margin-top: 20px;">
+								COMING SOON</h4>
+						</div>
+					</div>
+					<!-- /home content -->
+
+				</div>
+			</div>
+		</div>
+		<!-- /home wrapper -->
+
+	</header>
+	<!-- /Header -->
+
+	<!-- About Us -->
+	<div id="about" class="section md-padding hello">
+
+		<!-- Container -->
+		<div class="container" id="about-container">
+
+			<!-- Row -->
+			<div class="row">
+
+				<!-- Section header -->
+				<div class="section-header text-center">
+					<h2 class="title">About Us</h2>
+				</div>
+				<!-- /Section header -->
+
+				<!-- about -->
+				<div class="col-md-12">
+					<div class="about">
+						<p>E-Cell IIT Hyderabad aims to promote entrepreneurship among young minds across India. We aim
+							to create a robust network, through which students can come forward and share ideas among
+							their peers and leading industrialists, by engaging in different events and competitions.
+						</p>
+
+						<p>We are launching our CA programme, and you can add value to it. We are looking for students
+							from various colleges across India, who can help us expand this network, and become a part
+							of it. We would like you to be the face of E-Cell IIT Hyderabad in your college and take
+							this initiative forward with your voice and work to make ideas into innovation.</p>
+					</div>
+				</div>
+				<!-- /about -->
+
+			</div>
+			<!-- /Row -->
+
+		</div>
+		<!-- /Container -->
+
+	</div>
+
+	<!-- /About Us -->
+
+
+	<!-- Why CA -->
+	<div id="whyca" class="section md-padding hello" style="background-color: rgb(146, 146, 146);">
+
+		<!-- Container -->
+		<div class="container">
+
+			<!-- Row -->
+			<div class="row">
+
+				<!-- Section header -->
+				<div class="section-header text-center">
+					<h2 class="title" style="color: rgb(255, 255, 255);">Why CA</h2>
+				</div>
+				<!-- /Section header -->
+
+				<!-- Incentives -->
+				<div class="col-md-12 col-sm-6">
+					<div class="incentive">
+						<i class="fa fa-handshake-o"></i>
+						<p>An opportunity to expand your network in your campus and outside.</p>
+					</div>
+					<div class="incentive">
+						<i class="fa fa-handshake-o"></i>
+						<p>Opportunity to be part of various entrepreneurial events conducted by E-Cell IIT Hyderabad.
+						</p>
+					</div>
+					<div class="incentive">
+						<i class="fa fa-handshake-o"></i>
+						<p>Improve your management and communication skills by being a part of CA IIT Hyderabad.</p>
+					</div>
+					<div class="incentive">
+						<i class="fa fa-handshake-o"></i>
+						<p>Get access to resources to enhance your knowledge about entrepreneurship and Management.</p>
+					</div>
+					<div class="incentive">
+						<i class="fa fa-handshake-o"></i>
+						<p>Certificate of appreciation from E-cell IITH at the end of the tenure.</p>
+					</div>
+				</div>
+				<!-- /Incentives -->
+
+			</div>
+			<!-- /Row -->
+
+		</div>
+		<!-- /Container -->
+
+	</div>
+	<!-- /Why CA -->
+
+
+
+	<!-- Portfolio -->
+	<div id="responsibilities" class="section md-padding bg-grey hello" style="background-color: white;">
+
+		<!-- Container -->
+		<div class="container">
+
+			<!-- Row -->
+			<div class="row">
+
+				<!-- Section header -->
+				<div class="section-header text-center">
+					<h2 class="title">Responsibilities</h2>
+				</div>
+				<!-- /Section header -->
+
+				<!-- Work -->
+				<div class="col-md-6 col-xs-12 work" style="text-align: center;">
+					<i class="fa fa-bullhorn fa-5x"></i>
+					<div style="font-size: 50px;">Communicate</div>
+					<div class="overlay"></div>
+					<div class="work-content">
+						<span>Communicate</span>
+						<h3>Create awareness about E-Cell IIT Hyderabad and advertise the events and competitions
+							conducted by E-Cell IITH.</h3>
+
+					</div>
+				</div>
+				<!-- /Work -->
+
+				<!-- Work -->
+				<div class="col-md-6 col-xs-12 work" style="text-align: center;">
+					<i class="fa fa-thumbs-up fa-5x"></i>
+					<div style="font-size: 50px;">Promote</div>
+					<div class="overlay"></div>
+					<div class="work-content">
+						<span>Promote</span>
+						<h3>Gain followers and likes on social media.</h3>
+
+					</div>
+				</div>
+				<!-- /Work -->
+
+				<!-- Work -->
+				<div class="col-md-6 col-xs-12 work" style="text-align: center;">
+					<i class="fa fa-group fa-5x"></i>
+					<div style="font-size: 50px;">Orchestrate</div>
+					<div class="overlay"></div>
+					<div class="work-content">
+						<span>Orchestrate</span>
+						<h3>Ensure participation from your college in all events conducted by E-Cell IITH.</h3>
+
+					</div>
+				</div>
+				<!-- /Work -->
+
+				<!-- Work -->
+				<div class="col-md-6 col-xs-12 work" style="text-align: center;">
+					<i class="fa fa-chain fa-5x"></i>
+					<div style="font-size: 50px;">Connect</div>
+					<div class="overlay"></div>
+					<div class="work-content">
+						<span>Connect</span>
+						<h3>Serve as an important connection between students of your college and the Cell.</h3>
+
+					</div>
+				</div>
+				<!-- /Work -->
+
+			</div>
+			<!-- /Row -->
+
+		</div>
+		<!-- /Container -->
+
+	</div>
+	<!-- /Portfolio -->
+
+
+	<!-- Incentives -->
+	<div id="incentives" class="section md-padding hello" style="background-color: rgb(156, 224, 209);">
+
+		<!-- Container -->
+		<div class="container">
+
+			<!-- Row -->
+			<div class="row">
+
+				<!-- Section header -->
+				<div class="section-header text-center">
+					<h2 class="title">Incentives</h2>
+				</div>
+				<!-- /Section header -->
+
+				<!-- whyca -->
+				<div class="col-md-3">
+					<div class="whyca">
+						<i class="fa fa-certificate"></i>
+						<h3>Get Certified</h3>
+						<p>Recommendations & Certificate of Excellence for top campus ambassadors.</p>
+					</div>
+				</div>
+				<!-- /whyca -->
+
+				<!-- whyca -->
+				<div class="col-md-3">
+					<div class="whyca">
+						<i class="fa fa-puzzle-piece"></i>
+						<h3>Access To Events</h3>
+						<p>Free passes for all the events conducted by E-Cell IITH.</p>
+					</div>
+				</div>
+				<!-- /whyca -->
+
+				<!-- whyca -->
+				<div class="col-md-3">
+					<div class="whyca">
+						<i class="fa fa-lightbulb-o"></i>
+						<h3>Get Enlightened</h3>
+						<p>Sessions with alumni of IIT Hyderabad.</p>
+					</div>
+				</div>
+				<!-- /whyca -->
+
+				<!-- whyca -->
+				<div class="col-md-3">
+					<div class="whyca">
+						<i class="fa fa-cubes"></i>
+						<h3>Skill Development</h3>
+						<!--<p>The top campus ambassadors will receive recommendations, certificate of excellence, and many more incentives.</p>-->
+						<p>Free training programme worth rupees 1.5 lakhs.</p>
+					</div>
+				</div>
+				<!-- /whyca -->
+
+				<!-- whyca -->
+				<!--div class="col-md-3">
+					<div class="whyca">
+						<i class="fa fa-pagelines"></i>
+						<h3>Exclusive Content</h3>
+						<p>E-Cell IIT Bombay is offering Exclusive Video lectures delivered by our Guest Speakers especially recorded for our CAs!</p>
+					</div>
+				</div>-->
+				<!-- /whyca -->
+
+
+			</div>
+			<!-- /Row -->
+
+		</div>
+		<!-- /Container -->
+
+	</div>
+	<!-- /Incentives -->
+
+
+	<!-- Terms -->
+	<div id="terms" class="section md-padding hello">
+
+		<!-- Container -->
+		<div class="container">
+
+			<!-- Row -->
+			<div class="row">
+
+				<!-- Section header -->
+				<div class="section-header text-center">
+					<h2 class="title" style="color: rgb(0, 54, 108);">Terms & Conditions</h2>
+				</div>
+				<!-- /Section header -->
+
+				<!-- terms -->
+				<!-- service -->
+				<div class="col-md-12 col-sm-6">
+					<div class="service">
+						<i class="fa fa-lock"></i>
+						<p>Students from colleges across the country can participate in this endeavour.</p>
+						<hr>
+						<i class="fa fa-lock"></i>
+						<p>The Campus Ambassadors would be given certain points for each task with a public leader board
+							to ensure Transparency.</p>
+						<hr>
+						<i class="fa fa-lock"></i>
+						<p>All the events must be promoted according to the terms mentioned by E-Cell IIT Hyderabad.</p>
+						<hr>
+						<i class="fa fa-lock"></i>
+						<p>All the events held under this programme would be Supervised by E-Cell IIT Hyderabad
+							directly.</p>
+						<hr>
+						<i class="fa fa-lock"></i>
+						<p>After completion of a task, the CAs must provide the proof to our managers as instructed by
+							them.</p>
+						<hr>
+						<i class="fa fa-lock"></i>
+						<p>In case of any dispute, the final decision lies with E-Cell IITH.</p>
+						<hr>
+						<i class="fa fa-lock"></i>
+						<p>Any case of plagiarism or sharing confidential information would lead to disqualification or
+							may lead to permanent ban in some cases.</p>
+					</div>
+				</div>
+				<!-- /service -->
+				<!-- /terms -->
+
+			</div>
+			<!-- /Row -->
+
+		</div>
+		<!-- /Container -->
+
+	</div>
+	<!-- /Terms -->
+
+
+
+
+
+
+
+	<!--Reviews-->
+	<div>
+
+		<div class="container">
+			<div id="rating" class="section md-padding hello">
+				<div class=" text-center">
+					<h2 class="title">Past Experiences</h2>
+				</div>
+				<div class="row">
+
+					<div class="col-md-12">
+						<div class="carousel slide" data-ride="carousel" id="quote-carousel">
+							<!-- Carousel Slides / Quotes -->
+							<!-- Section header -->
+
+							<!-- /Section header -->
+							<div class="carousel-inner text-center">
+
+
+								<!-- Quote 1 -->
+								<div class="item active">
+									<blockquote>
+										<div class="row">
+											<div class="col-sm-8 col-sm-offset-2">
+												<p>The ca programme was very intriguing and knowledge enriching. E- cell
+													IITH offered not only learning opportunities but also the ways to
+													implement it in live projects. It was overall a great experience.
+												</p>
+												<small>Shreyasi Mandal</small>
+											</div>
+										</div>
+									</blockquote>
+								</div>
+								<!-- Quote 2 -->
+								<div class="item">
+									<blockquote>
+										<div class="row">
+											<div class="col-sm-8 col-sm-offset-2">
+												<p>Thank you so much for the opportunity. I confidently say I wouldn't
+													have
+													grown as much I have these past 4 months. Without your detailed
+													feedback
+													and unwavering support.
+													I would like to thank you the entire team of E-Cell IIT Hyderabad
+													for
+													believing in me and thanks to @Nazis Kaunain team leader who gave me
+													this chance for working in E-Cell IIT Hyderabad and Always
+													motivating
+													me.
+													The internship opportunity I had was great chance of learning and
+													professional development. I learn a lot during this internship
+													period.
+													Thanks for giving me chance to explore more and learn many
+													things....
+												</p>
+												<small>Jyoti Kumari</small>
+											</div>
+										</div>
+									</blockquote>
+								</div>
+								<!-- Quote 3 -->
+								<div class="item">
+									<blockquote>
+										<div class="row">
+											<div class="col-sm-8 col-sm-offset-2">
+												<p>It was really a great experience for me. Got to meet new people and
+													it
+													was fun working with everyone.
+													The challenges faced were really good. And my mentor supported me
+													well
+													in each n every aspect. And got an opportunity to attend meets.
+													Overall, I liked the CA program.</p>
+												<small>Avvaru Preethi</small>
+											</div>
+										</div>
+									</blockquote>
+								</div>
+								<!-- Quote 4 -->
+								<div class="item">
+									<blockquote>
+										<div class="row">
+											<div class="col-sm-8 col-sm-offset-2">
+												<p>As a Campus Ambassador of E-Cell IIT HYDERABAD 20-21, I enjoyed a
+													lot,
+													got a chance to meet wonderful people.
+													Core team of E-cell was very friendly with us, the way they managed
+													all
+													the events was good, we CA's were provided with managers to help us
+													during this program also the workshop, webinars and events they
+													conducted for CA's were very nice.
+													Overall i enjoyed this experience.</p>
+												<small>Suraj Bodke</small>
+											</div>
+										</div>
+									</blockquote>
+								</div>
+								<!-- Quote 5 -->
+								<div class="item">
+									<blockquote>
+										<div class="row">
+											<div class="col-sm-8 col-sm-offset-2">
+												<p>It was a great honour being as CA with ECELL-IITH. The tasks given
+													were
+													Good enough. The manager was good enough to handle, clarify the
+													things
+													clearly. Mostly interesting tasks were used to give. Probably it
+													feels
+													like a competition while doing the programme. Moreover, it was
+													fantastic
+													excellence working with E-Cell IIT Hyd. </p>
+												<small>Ameer Sohali</small>
+											</div>
+										</div>
+									</blockquote>
+								</div>
+							</div>
+							<!-- Bottom Carousel Indicators -->
+							<ol class="carousel-indicators">
+								<li data-target="#quote-carousel" data-slide-to="0" class="active">
+								</li>
+								<li data-target="#quote-carousel" data-slide-to="1">
+								</li>
+								<li data-target="#quote-carousel" data-slide-to="2">
+								</li>
+								<li data-target="#quote-carousel" data-slide-to="3">
+								</li>
+								<li data-target="#quote-carousel" data-slide-to="4">
+								</li>
+							</ol>
+
+							<!-- Carousel Buttons Next/Prev -->
+							<a data-slide="prev" href="#quote-carousel" class="left carousel-control"><i
+									class="fa fa-chevron-left"></i></a>
+							<a data-slide="next" href="#quote-carousel" class="right carousel-control"><i
+									class="fa fa-chevron-right"></i></a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!--/Reviews-->
+
+
+
+
+
+
+
+	<!-- Footer -->
+	<footer id="footer" class="sm-padding bg-dark hello" style="background-color: rgb(156, 224, 209)">
+
+		<!-- Container -->
+		<div class="container">
+
+			<!-- Row -->
+			<div class="row">
+
+				<div class="col-md-12">
+
+					<!-- footer logo -->
+					<div class="footer-logo">
+						<a href="index.html"><img src="img/logo-blue.png" alt="logo"></a>
+					</div>
+					<!-- /footer logo -->
+
+					<div class="footer-contact">
+						E-Cell Office, IIT Hyderabad
+					</div>
+
+					<!-- footer follow -->
+					<ul class="footer-follow">
+						<li><a href="https://www.facebook.com/ecell.iithyd/" target="_blank"><i
+									class="fa fa-facebook"></i></a></li>
+						<li><a href="https://twitter.com/ecell_iith" target="_blank"><i class="fa fa-twitter"></i></a>
+						</li>
+						<!--<li><a href="#"><i class="fa fa-google-plus"></i></a></li>-->
+						<li><a href="https://www.instagram.com/ecell_iith/?hl=en" target="_blank"><i
+									class="fa fa-instagram"></i></a>
+						</li>
+						<li><a id="mail"><i class="fa fa-envelope-o"></i></a></li>
+						<li><a href="https://www.linkedin.com/company/entrepreneurship-cell-iit-hyderabad/about/"
+								target="_blank"><i class="fa fa-linkedin"></i></a></li>
+						<!--<li><a href="#"><i class="fa fa-youtube"></i></a></li>-->
+					</ul>
+					<!-- /footer follow -->
+
+					<!-- footer copyright -->
+					<!-- <div class="footer-copyright">
+						<p>Copyright © 2017. All Rights Reserved. Designed by <a href="https://colorlib.com" target="_blank">Colorlib</a></p>
+					</div> -->
+					<!-- /footer copyright -->
+
+				</div>
+
+			</div>
+			<!-- /Row -->
+
+		</div>
+		<!-- /Container -->
+
+	</footer>
+	<!-- /Footer -->
+
+	<!-- Back to top -->
+	<div id="back-to-top"></div>
+	<!-- /Back to top -->
+
+	<!-- Preloader -->
+	<div id="preloader">
+		<div class="preloader">
+			<span></span>
+			<span></span>
+			<span></span>
+			<span></span>
+		</div>
+	</div>
+	<!-- /Preloader -->
+
+	<!-- jQuery Plugins -->
+	<script type="text/javascript" src="js/jquery.min.js"></script>
+	<script type="text/javascript" src="js/bootstrap.min.js"></script>
+	<script type="text/javascript" src="js/owl.carousel.min.js"></script>
+	<script type="text/javascript" src="js/jquery.magnific-popup.js"></script>
+	<script type="text/javascript" src="js/main.js"></script>
+</body>
+
+</html>
