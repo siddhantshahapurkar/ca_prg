@@ -675,6 +675,15 @@ header {
     color: #868F9B;
 }
 
+#regBtn {
+    color: rgb(255, 255, 255);
+    background-color: rgb(254, 92, 100);
+    border-radius: 5px;
+    width: max-content;
+    padding: 12.5px;
+    margin-top: 20px;
+    display: inline-block;
+}
 
 /*------------------------------------*\
 	About
